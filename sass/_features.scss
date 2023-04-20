@@ -1,0 +1,35 @@
+.features {
+  grid-column: center-start / center-end;
+
+  margin: 15rem 0;
+
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(25rem, 1fr)
+  ); //for responsive webpage
+  //grid-template-columns: repeat(3, 1fr);
+  grid-gap: 6rem;
+
+  align-items: start; //make all items inside start from same place when they have differenct longth, otherwise, they will stretch in their own grid
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: min-content 1fr; //icons locate in first column as the h3/p locate in the second
+  grid-row-gap: 1.5rem;
+  grid-column-gap: 2.5rem;
+
+  &__icon {
+    fill: $color-primary; //that's how we change SVG color
+    width: 4.5rem;
+    height: 4.5rem;
+    grid-row: 1 / span 2; //icons span 2, so the third item(paragrph) will locate in second column, ATTENTION:can't use 1/-1 , because explicit row
+    transform: translateY(-1rem);
+  }
+
+  &__text {
+    font-size: 1.7rem;
+    grid-column: 2/3;
+  }
+}
